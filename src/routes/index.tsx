@@ -13,7 +13,7 @@ import {
 
 const title = "Paradise Inn Bhimtal | Luxury Lake View Hotel in Uttarakhand";
 const description =
-  "Paradise Inn Bhimtal is a lake-view boutique hotel beside Bhimtal Lake — deluxe and family rooms, restaurant, free WiFi, parking and warm Kumaoni hospitality.";
+  "Paradise Inn Bhimtal is a lake-view stay on Mandir Marg near Bhimtal Lake, with standard, lake-view triple and lake-view four-bedded rooms, free WiFi and room service.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -38,25 +38,25 @@ export const Route = createFileRoute("/")({
           description,
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Bhimtal Lake Road",
+            streetAddress:
+              "Paradise inn, Mandir Marg, Ward no 3, Jind State Nagar Panchayat, Near SOS Bhimtal",
             addressLocality: "Bhimtal",
             addressRegion: "Uttarakhand",
             postalCode: "263136",
             addressCountry: "IN",
           },
-          telephone: "+91 98370 12345",
+          telephone: "+919897954060",
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: "4.2",
-            reviewCount: "181",
+            ratingValue: "4.0",
+            reviewCount: "71",
           },
           amenityFeature: [
             "Free WiFi",
             "Lake View",
-            "Restaurant",
-            "Room Service",
-            "Parking",
-            "24x7 Reception",
+            "24-hour Room Service",
+            "Power Backup",
+            "Housekeeping",
             "Family Rooms",
           ].map((name) => ({ "@type": "LocationFeatureSpecification", name })),
         }),

@@ -15,22 +15,21 @@ import {
 } from "lucide-react";
 import { Reveal, SectionHeading } from "./reveal";
 import aboutHotel from "@/assets/about-hotel.jpg";
-import roomDeluxe from "@/assets/room-deluxe.jpg";
+import roomStandard from "@/assets/paradise-inn-street.jpeg";
 import roomSuper from "@/assets/room-super-deluxe.jpg";
-import roomLake from "@/assets/room-lake-view.jpg";
 import roomFamily from "@/assets/room-family.jpg";
 
 const STATS = [
-  { value: "181+", label: "Happy Reviews" },
-  { value: "4.2★", label: "Google Rating" },
-  { value: "12", label: "Lake View Rooms" },
-  { value: "24×7", label: "Reception" },
+  { value: "181+", label: "Traveller Ratings" },
+  { value: "4.2★", label: "Guest Rating" },
+  { value: "3", label: "Room Types" },
+  { value: "10 AM", label: "Check-in" },
 ];
 
 const HIGHLIGHTS = [
   { icon: Waves, label: "Lake View Rooms" },
   { icon: Wifi, label: "Free WiFi" },
-  { icon: UtensilsCrossed, label: "Restaurant" },
+  { icon: ConciergeBell, label: "24-hour Room Service" },
   { icon: Car, label: "Parking" },
   { icon: Users, label: "Family Friendly" },
 ];
@@ -47,14 +46,13 @@ export function About() {
             </h2>
             <div className="mt-6 h-px w-14 bg-gold" />
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              Paradise Inn is located beside the serene Bhimtal Lake, offering peaceful
-              accommodation, comfortable rooms, mountain views, delicious food and warm
-              hospitality.
+              Paradise Inn is located on Mandir Marg near Bhimtal Lake, with lake-facing room
+              options, housekeeping, room service and essential hill-station comforts for families,
+              couples and small groups.
             </p>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Mornings begin with mist drifting over the water and end with the hills turning
-              amber at sunset. Every room is designed to keep the outdoors in view — and
-              everything else out of mind.
+              The stay keeps you close to the lake, market and nearby day trips, while the rooms
+              focus on simple comfort, hot water, free WiFi and helpful local assistance.
             </p>
           </Reveal>
 
@@ -90,7 +88,7 @@ export function About() {
           <div className="zoom-media relative rounded-2xl luxe-shadow">
             <img
               src={aboutHotel}
-              alt="Paradise Inn Bhimtal lit up at dusk beside the lake"
+              alt="Paradise Inn Bhimtal reception"
               loading="lazy"
               width={1200}
               height={1500}
@@ -98,9 +96,9 @@ export function About() {
             />
           </div>
           <div className="glass absolute -bottom-8 left-6 hidden rounded-xl px-6 py-5 sm:block">
-            <p className="font-display text-2xl text-foreground">Est. beside the lake</p>
+            <p className="font-display text-2xl text-foreground">Mandir Marg, Bhimtal</p>
             <p className="mt-1 text-xs tracking-[0.2em] text-muted-foreground uppercase">
-              Bhimtal · 1,370 m above sea level
+              Bhimtal · Uttarakhand 263136
             </p>
           </div>
         </Reveal>
@@ -111,32 +109,25 @@ export function About() {
 
 const ROOMS = [
   {
-    name: "Deluxe Room",
-    image: roomDeluxe,
-    price: "₹2,400",
-    facilities: ["King Bed", "Free WiFi", "Hot Water", "Room Service"],
-    status: "3 rooms left",
+    name: "Standard Room Double Bed",
+    image: roomStandard,
+    price: "₹2,000",
+    facilities: ["169 sq.ft", "Max 3 Guests", "1 Double Bed", "1 Bathroom"],
+    status: "Room Only",
   },
   {
-    name: "Super Deluxe Room",
+    name: "Lake View Triple Bedded Room",
     image: roomSuper,
-    price: "₹3,200",
-    facilities: ["Sitting Area", "Balcony", "Smart TV", "Breakfast"],
-    status: "Available",
+    price: "₹2,800",
+    facilities: ["100 sq.ft", "Max 3 Guests", "Lake View", "1 Double Bed"],
+    status: "Lake View",
   },
   {
-    name: "Lake View Room",
-    image: roomLake,
-    price: "₹3,900",
-    facilities: ["Panoramic Lake View", "King Bed", "Tea/Coffee", "Balcony"],
-    status: "Only 2 left",
-  },
-  {
-    name: "Family Room",
+    name: "Lake View Four Bedded Room",
     image: roomFamily,
-    price: "₹4,500",
-    facilities: ["Two Double Beds", "Sleeps 4-5", "Mountain View", "Extra Bed"],
-    status: "Available",
+    price: "₹3,000",
+    facilities: ["300 sq.ft", "Max 5 Guests", "Lake View", "2 Double Beds"],
+    status: "Family Friendly",
   },
 ];
 
@@ -147,7 +138,7 @@ export function Rooms() {
         <SectionHeading
           eyebrow="Stay"
           title="Rooms & Suites"
-          subtitle="Four ways to wake up to the mountains — each room turned toward the light, the lake, or the pines."
+          subtitle="Verified Paradise Inn room options with practical comforts, lake-facing choices and flexible room-only booking plans."
         />
         <div className="mt-16 grid gap-8 sm:grid-cols-2">
           {ROOMS.map((room, i) => (
@@ -211,16 +202,16 @@ export function Rooms() {
 const AMENITIES = [
   { icon: Wifi, label: "Free WiFi" },
   { icon: Waves, label: "Lake View" },
-  { icon: UtensilsCrossed, label: "Restaurant" },
-  { icon: ConciergeBell, label: "Room Service" },
+  { icon: ConciergeBell, label: "24-hour Room Service" },
   { icon: Car, label: "Parking" },
-  { icon: Clock, label: "24x7 Reception" },
+  { icon: Clock, label: "Power Backup" },
   { icon: BedDouble, label: "Family Rooms" },
   { icon: Mountain, label: "Mountain View" },
-  { icon: Droplets, label: "Hot Water" },
-  { icon: Map, label: "Travel Assistance" },
-  { icon: Trees, label: "Garden Sit-out" },
-  { icon: Users, label: "Group Stays" },
+  { icon: Droplets, label: "Geyser/Water Heater" },
+  { icon: Map, label: "Luggage Assistance" },
+  { icon: Trees, label: "Terrace Garden" },
+  { icon: UtensilsCrossed, label: "In-room Dining" },
+  { icon: Users, label: "Doctor on Call" },
 ];
 
 export function Amenities() {
@@ -229,7 +220,7 @@ export function Amenities() {
       <SectionHeading
         eyebrow="Comforts"
         title="Everything, quietly taken care of"
-        subtitle="Thoughtful essentials and small luxuries, so your only decision is where to sit and watch the lake."
+        subtitle="Thoughtful essentials and practical services, so your only decision is where to sit and watch the lake."
       />
       <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {AMENITIES.map((a, i) => (

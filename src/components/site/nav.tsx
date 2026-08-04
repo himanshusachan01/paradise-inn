@@ -3,13 +3,16 @@ import { Menu, X, Moon, Sun, Phone, MessageCircle, CalendarCheck } from "lucide-
 
 export const HOTEL = {
   name: "Paradise Inn Bhimtal",
-  phone: "+919837012345",
-  phoneLabel: "+91 98370 12345",
-  whatsapp: "919837012345",
-  email: "stay@paradiseinnbhimtal.com",
-  address: "Bhimtal Lake Road, Bhimtal, Nainital, Uttarakhand 263136",
-  mapsLink: "https://www.google.com/maps/search/?api=1&query=Bhimtal+Lake+Bhimtal+Uttarakhand",
-  directions: "https://www.google.com/maps/dir/?api=1&destination=Bhimtal+Lake+Bhimtal+Uttarakhand",
+  phone: "+919897954060",
+  phoneLabel: "98979 54060",
+  whatsapp: "919897954060",
+  email: "paradise.anurag@gmail.com",
+  address:
+    "Paradise inn, Mandir Marg, Ward no 3, Jind State Nagar Panchayat, Near SOS Bhimtal, Uttarakhand 263136",
+  mapsLink:
+    "https://www.google.com/maps/search/?api=1&query=Paradise+Inn+Mandir+Marg+Bhimtal+Uttarakhand",
+  directions:
+    "https://www.google.com/maps/dir/?api=1&destination=Paradise+Inn+Mandir+Marg+Bhimtal+Uttarakhand",
 };
 
 const LINKS = [
