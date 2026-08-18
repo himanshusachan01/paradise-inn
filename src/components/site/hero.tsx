@@ -29,22 +29,27 @@ function getWeatherLabel(code: number) {
 export function Hero() {
   const today = toDateInputValue(new Date());
   const [checkIn, setCheckIn] = useState(() => toDateInputValue(new Date()));
-  const [checkOut, setCheckOut] = useState(() => toDateInputValue(new Date(Date.now() + ONE_DAY_MS)));
+  const [checkOut, setCheckOut] = useState(() =>
+    toDateInputValue(new Date(Date.now() + ONE_DAY_MS)),
+  );
   const [guests, setGuests] = useState("2 Guests");
-  const [weather, setWeather] = useState("Live weather updating");
+  const [weather, setWeather] = useState("Live temperature updating");
 
   useEffect(() => {
     const controller = new AbortController();
 
     async function loadWeather() {
       try {
-        const response = await fetch(BHIMTAL_WEATHER_URL, { signal: controller.signal });
+        const response = await fetch(BHIMTAL_WEATHER_URL, {
+          cache: "no-store",
+          signal: controller.signal,
+        });
         if (!response.ok) throw new Error("Weather request failed");
         const data = await response.json();
         const current = data.current;
         const temperature = Math.round(Number(current.temperature_2m));
         const label = getWeatherLabel(Number(current.weather_code));
-        setWeather(`Bhimtal ${temperature}°C · ${label}`);
+        setWeather(`Live now · Bhimtal ${temperature}°C · ${label}`);
       } catch (error) {
         if (!controller.signal.aborted) {
           setWeather("Bhimtal weather unavailable");
@@ -74,7 +79,7 @@ export function Hero() {
   };
 
   return (
-    <section id="top" className="relative min-h-[100svh] w-full overflow-hidden">
+    <section id="top" className="relative min-h-[100svh] w-full overflow-hidden pb-8 lg:pb-0">
       <motion.img
         src={heroLake}
         alt="Bhimtal Lake view from Paradise Inn"
@@ -90,8 +95,9 @@ export function Hero() {
         style={{ background: "var(--gradient-veil)" }}
         aria-hidden
       />
+      <div className="absolute inset-0 bg-forest-deep/25 lg:hidden" aria-hidden />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pt-32 pb-40 sm:px-8">
+      <div className="relative mx-auto flex min-h-[auto] max-w-7xl flex-col justify-start px-5 pt-40 pb-8 sm:px-8 lg:min-h-[100svh] lg:justify-center lg:pt-32 lg:pb-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,28 +105,28 @@ export function Hero() {
           className="max-w-3xl"
         >
           <p className="eyebrow">Bhimtal · Uttarakhand</p>
-          <h1 className="mt-6 text-5xl leading-[1.05] text-primary-foreground sm:text-7xl lg:text-[5.2rem]">
+          <h1 className="mt-6 text-4xl leading-[1.05] text-[#fbfaf4] drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:text-7xl lg:text-[5.2rem]">
             Wake Up to the Beauty of Bhimtal
           </h1>
-          <p className="mt-6 max-w-xl text-lg font-light text-primary-foreground/85">
+          <p className="mt-5 max-w-xl text-base font-light text-[#fbfaf4]/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] sm:mt-6 sm:text-lg">
             Luxury Lake View Stay in the Heart of Uttarakhand
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
             <a
               href="#book"
-              className="rounded-full bg-gold px-9 py-4 text-[0.72rem] tracking-[0.24em] text-accent-foreground uppercase transition-transform hover:scale-105"
+              className="rounded-full bg-gold px-7 py-3 text-[0.68rem] tracking-[0.2em] text-accent-foreground uppercase transition-transform hover:scale-105 sm:px-9 sm:py-4 sm:text-[0.72rem] sm:tracking-[0.24em]"
             >
               Book Your Stay
             </a>
             <a
               href="#rooms"
-              className="rounded-full border border-primary-foreground/40 px-9 py-4 text-[0.72rem] tracking-[0.24em] text-primary-foreground uppercase backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
+              className="rounded-full border border-[#fbfaf4]/40 px-7 py-3 text-[0.68rem] tracking-[0.2em] text-[#fbfaf4] uppercase backdrop-blur-sm transition-colors hover:border-gold hover:text-gold sm:px-9 sm:py-4 sm:text-[0.72rem] sm:tracking-[0.24em]"
             >
               View Rooms
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-6 text-primary-foreground/80">
+          <div className="mt-10 flex flex-wrap items-center gap-6 text-[#fbfaf4]/80">
             <span className="flex items-center gap-2 text-sm">
               <Star className="size-4 fill-gold text-gold" /> 4.2 · 181+ traveller ratings
             </span>
@@ -136,9 +142,9 @@ export function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-x-0 bottom-20 z-20 px-5 sm:px-8"
+        className="relative z-20 px-5 sm:px-8 lg:absolute lg:inset-x-0 lg:bottom-20"
       >
-        <div className="glass mx-auto grid max-w-5xl gap-4 rounded-2xl p-5 sm:grid-cols-2 lg:grid-cols-4 lg:items-end">
+        <div className="glass mx-auto grid max-w-5xl gap-4 rounded-2xl p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-4 lg:items-end">
           <label className="block">
             <span className="mb-2 flex items-center gap-2 text-[0.65rem] tracking-[0.22em] text-muted-foreground uppercase">
               <CalendarDays className="size-3.5 text-gold" /> Check In
@@ -148,7 +154,7 @@ export function Hero() {
               value={checkIn}
               min={today}
               onChange={(e) => handleCheckInChange(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background/70 px-4 py-3 text-sm text-foreground outline-none focus:border-gold"
+              className="w-full rounded-lg border border-border bg-background/70 px-4 py-2.5 text-sm text-foreground outline-none focus:border-gold sm:py-3"
             />
           </label>
           <label className="block">
@@ -160,7 +166,7 @@ export function Hero() {
               value={checkOut}
               min={minCheckOut}
               onChange={(e) => handleCheckOutChange(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background/70 px-4 py-3 text-sm text-foreground outline-none focus:border-gold"
+              className="w-full rounded-lg border border-border bg-background/70 px-4 py-2.5 text-sm text-foreground outline-none focus:border-gold sm:py-3"
             />
           </label>
           <label className="block">
@@ -170,7 +176,7 @@ export function Hero() {
             <select
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background/70 px-4 py-3 text-sm text-foreground outline-none focus:border-gold"
+              className="w-full rounded-lg border border-border bg-background/70 px-4 py-2.5 text-sm text-foreground outline-none focus:border-gold sm:py-3"
             >
               {["1 Guest", "2 Guests", "3 Guests", "4 Guests", "5+ Guests"].map((g) => (
                 <option key={g}>{g}</option>
@@ -183,7 +189,7 @@ export function Hero() {
             )}`}
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg bg-forest px-6 py-3.5 text-center text-[0.72rem] tracking-[0.24em] text-primary-foreground uppercase transition-transform hover:scale-[1.03] dark:bg-gold dark:text-accent-foreground"
+            className="flex h-11 items-center justify-center self-end rounded-lg bg-forest px-6 text-center text-[0.68rem] tracking-[0.2em] text-primary-foreground uppercase transition-transform hover:scale-[1.03] sm:h-12 sm:text-[0.72rem] sm:tracking-[0.24em] lg:h-[3.25rem] dark:bg-gold dark:text-accent-foreground"
           >
             Book Now
           </a>

@@ -19,27 +19,42 @@ import {
   Facebook,
   MessageCircle,
   Navigation,
+  HelpCircle,
 } from "lucide-react";
+import { HOTEL } from "@/lib/hotel";
+import { faqItems } from "@/lib/seo";
 import { Reveal, SectionHeading } from "./reveal";
-import { HOTEL } from "./nav";
 
 const REASONS = [
-  { icon: Waves, title: "Best Lake View", text: "Rooms and terraces angled straight at the water." },
+  {
+    icon: Waves,
+    title: "Best Lake View",
+    text: "Rooms and terraces angled straight at the water.",
+  },
   { icon: Gem, title: "Affordable Luxury", text: "Boutique comfort at honest hill-station rates." },
-  { icon: HeartHandshake, title: "Excellent Hospitality", text: "A small team that remembers your name." },
+  {
+    icon: HeartHandshake,
+    title: "Excellent Hospitality",
+    text: "A small team that remembers your name.",
+  },
   { icon: Leaf, title: "Peaceful Location", text: "Away from traffic, close to the lake path." },
-  { icon: Sparkles, title: "Spotless Rooms", text: "Fresh linen, daily housekeeping, hot water always." },
+  {
+    icon: Sparkles,
+    title: "Spotless Rooms",
+    text: "Fresh linen, daily housekeeping, hot water always.",
+  },
   { icon: Users, title: "Family Friendly", text: "Interconnected family rooms and extra beds." },
-  { icon: ShieldCheck, title: "Safe Parking", text: "Gated on-site parking, monitored round the clock." },
+  {
+    icon: ShieldCheck,
+    title: "Safe Parking",
+    text: "Gated on-site parking, monitored round the clock.",
+  },
 ];
 
 export function WhyUs() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-28 sm:px-8 lg:py-36">
-      <SectionHeading
-        eyebrow="Why Paradise Inn"
-        title="Reasons guests return every season"
-      />
+      <SectionHeading eyebrow="Why Paradise Inn" title="Reasons guests return every season" />
       <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {REASONS.map((r, i) => (
           <Reveal key={r.title} delay={i * 0.05}>
@@ -183,11 +198,7 @@ export function Testimonials() {
 export function MapSection() {
   return (
     <section id="map" className="mx-auto max-w-7xl px-5 py-28 sm:px-8 lg:py-36">
-      <SectionHeading
-        eyebrow="Find Us"
-        title="Beside Bhimtal Lake"
-        subtitle={HOTEL.address}
-      />
+      <SectionHeading eyebrow="Find Us" title="Beside Bhimtal Lake" subtitle={HOTEL.address} />
       <Reveal delay={0.08}>
         <div className="mt-14 overflow-hidden rounded-2xl border border-border luxe-shadow">
           <iframe
@@ -211,6 +222,38 @@ export function MapSection() {
           </a>
         </div>
       </Reveal>
+    </section>
+  );
+}
+
+export function FaqSection() {
+  return (
+    <section id="faq" className="bg-secondary/50 py-28 lg:py-36">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <SectionHeading
+          eyebrow="Good To Know"
+          title="Paradise Inn Bhimtal FAQ"
+          subtitle="Quick answers for room bookings, location, amenities and nearby places before you travel."
+        />
+        <div className="mt-14 grid gap-4">
+          {faqItems.map((item, i) => (
+            <Reveal key={item.question} delay={i * 0.04}>
+              <details className="group rounded-2xl border border-border bg-background p-6 luxe-shadow">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-left">
+                  <span className="flex items-center gap-3 text-lg text-foreground">
+                    <HelpCircle className="size-5 shrink-0 text-gold" />
+                    {item.question}
+                  </span>
+                  <span className="grid size-8 shrink-0 place-items-center rounded-full border border-border text-gold transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-5 pl-8 leading-relaxed text-muted-foreground">{item.answer}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -266,8 +309,8 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            A lake-view boutique stay offering peaceful rooms, mountain views, home-style food
-            and warm Kumaoni hospitality.
+            A lake-view boutique stay offering peaceful rooms, mountain views, home-style food and
+            warm Kumaoni hospitality.
           </p>
           <div className="mt-7 flex gap-3">
             {[
@@ -322,6 +365,7 @@ export function Footer() {
               ["#gallery", "Gallery"],
               ["#nearby", "Nearby Attractions"],
               ["#map", "Location"],
+              ["#faq", "FAQ"],
             ].map(([href, label]) => (
               <li key={href}>
                 <a href={href} className="hover:text-gold">

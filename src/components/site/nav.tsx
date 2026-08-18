@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Moon, Sun, Phone, MessageCircle, CalendarCheck } from "lucide-react";
-
-export const HOTEL = {
-  name: "Paradise Inn Bhimtal",
-  phone: "+919897954060",
-  phoneLabel: "98979 54060",
-  whatsapp: "919897954060",
-  email: "paradise.anurag@gmail.com",
-  address:
-    "Paradise inn, Mandir Marg, Ward no 3, Jind State Nagar Panchayat, Near SOS Bhimtal, Uttarakhand 263136",
-  mapsLink:
-    "https://www.google.com/maps/search/?api=1&query=Paradise+Inn+Mandir+Marg+Bhimtal+Uttarakhand",
-  directions:
-    "https://www.google.com/maps/dir/?api=1&destination=Paradise+Inn+Mandir+Marg+Bhimtal+Uttarakhand",
-};
+import { HOTEL } from "@/lib/hotel";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -23,6 +10,7 @@ const LINKS = [
   { href: "#gallery", label: "Gallery" },
   { href: "#nearby", label: "Nearby" },
   { href: "#reviews", label: "Reviews" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -74,15 +62,15 @@ export function Navbar() {
           </span>
           <span className="leading-tight">
             <span
-              className={`block font-display text-lg tracking-wide ${
-                scrolled ? "text-foreground" : "text-primary-foreground"
+            className={`block font-display text-lg tracking-wide ${
+                scrolled ? "text-foreground" : "text-[#fbfaf4]"
               }`}
             >
               Paradise Inn
             </span>
             <span
-              className={`block text-[0.6rem] tracking-[0.35em] uppercase ${
-                scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
+            className={`block text-[0.6rem] tracking-[0.35em] uppercase ${
+                scrolled ? "text-muted-foreground" : "text-[#fbfaf4]/70"
               }`}
             >
               Bhimtal
@@ -96,7 +84,7 @@ export function Navbar() {
               key={l.href}
               href={l.href}
               className={`text-[0.78rem] tracking-[0.16em] uppercase transition-colors hover:text-gold ${
-                scrolled ? "text-foreground/80" : "text-primary-foreground/85"
+                scrolled ? "text-foreground/80" : "text-[#fbfaf4]/85"
               }`}
             >
               {l.label}
@@ -109,9 +97,9 @@ export function Navbar() {
             onClick={toggle}
             aria-label="Toggle dark mode"
             className={`grid size-9 place-items-center rounded-full border transition-colors ${
-              scrolled
-                ? "border-border text-foreground hover:border-gold hover:text-gold"
-                : "border-primary-foreground/30 text-primary-foreground hover:border-gold hover:text-gold"
+                scrolled
+                  ? "border-border text-foreground hover:border-gold hover:text-gold"
+                : "border-[#fbfaf4]/30 text-[#fbfaf4] hover:border-gold hover:text-gold"
             }`}
           >
             {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
@@ -126,9 +114,9 @@ export function Navbar() {
             onClick={() => setOpen((o) => !o)}
             aria-label="Menu"
             className={`grid size-9 place-items-center rounded-full border lg:hidden ${
-              scrolled
-                ? "border-border text-foreground"
-                : "border-primary-foreground/30 text-primary-foreground"
+                scrolled
+                  ? "border-border text-foreground"
+                : "border-[#fbfaf4]/30 text-[#fbfaf4]"
             }`}
           >
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
@@ -155,29 +143,45 @@ export function Navbar() {
 }
 
 export function FloatingActions() {
+  const [showFloatingActions, setShowFloatingActions] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowFloatingActions(window.scrollY > window.innerHeight * 0.72);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="fixed right-4 bottom-5 z-50 flex flex-col items-end gap-3 sm:right-6">
+    <div
+      className={`fixed right-4 bottom-5 z-50 flex flex-col items-end gap-2.5 transition-all duration-300 sm:right-6 ${
+        showFloatingActions
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-5 opacity-0"
+      }`}
+    >
       <a
         href={`https://wa.me/${HOTEL.whatsapp}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="float-shadow grid size-12 place-items-center rounded-full bg-forest text-primary-foreground transition-transform hover:scale-110 dark:bg-gold dark:text-accent-foreground"
+        className="float-shadow grid size-11 place-items-center rounded-full bg-forest text-primary-foreground transition-transform hover:scale-110 dark:bg-gold dark:text-accent-foreground"
       >
-        <MessageCircle className="size-5" />
+        <MessageCircle className="size-4.5" />
       </a>
       <a
         href={`tel:${HOTEL.phone}`}
         aria-label="Call the hotel"
-        className="float-shadow grid size-12 place-items-center rounded-full bg-gold text-accent-foreground transition-transform hover:scale-110"
+        className="float-shadow grid size-11 place-items-center rounded-full bg-gold text-accent-foreground transition-transform hover:scale-110"
       >
-        <Phone className="size-5" />
+        <Phone className="size-4.5" />
       </a>
       <a
         href="#book"
-        className="float-shadow flex items-center gap-2 rounded-full bg-forest-deep px-5 py-3 text-[0.7rem] tracking-[0.2em] text-primary-foreground uppercase transition-transform hover:scale-105 dark:bg-card dark:text-foreground"
+        aria-label="Book a room"
+        className="float-shadow flex h-10 items-center gap-2 rounded-full bg-forest-deep px-4 text-[0.65rem] tracking-[0.16em] text-primary-foreground uppercase transition-transform hover:scale-105 dark:bg-card dark:text-foreground"
       >
-        <CalendarCheck className="size-4" />
+        <CalendarCheck className="size-3.5" />
         Book
       </a>
     </div>

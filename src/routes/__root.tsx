@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { absoluteUrl, seo } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -77,15 +78,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Paradise Inn Bhimtal | Luxury Lake View Hotel" },
+      { title: seo.title },
       {
         name: "description",
-        content:
-          "Luxury lake view stay beside Bhimtal Lake in Uttarakhand — peaceful rooms, mountain views and warm hospitality.",
+        content: seo.description,
       },
-      { property: "og:site_name", content: "Paradise Inn Bhimtal" },
+      { name: "application-name", content: seo.siteName },
+      { name: "apple-mobile-web-app-title", content: seo.siteName },
+      { name: "format-detection", content: "telephone=yes" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#173f35" },
+      { property: "og:site_name", content: seo.siteName },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: seo.locale },
+      { property: "og:image", content: absoluteUrl(seo.image) },
+      {
+        property: "og:image:alt",
+        content: "Paradise Inn Bhimtal lake view stay near Bhimtal Lake",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(seo.image) },
     ],
     links: [
       {
@@ -99,6 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
 
@@ -110,7 +124,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
       </head>

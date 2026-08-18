@@ -6,10 +6,34 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const siteUrl = process.env.VITE_SITE_URL?.replace(/\/$/, "");
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    pages: [
+      {
+        path: "/",
+        sitemap: {
+          priority: 1,
+          changefreq: "weekly",
+          lastmod: "2026-08-18",
+          images: [
+            {
+              loc: "/seo/paradise-inn-bhimtal-og.jpg",
+              title: "Paradise Inn Bhimtal lake view hotel",
+              caption: "Lake view from Paradise Inn Bhimtal near Bhimtal Lake",
+            },
+          ],
+        },
+      },
+    ],
+    sitemap: {
+      enabled: Boolean(siteUrl),
+      host: siteUrl,
+      outputPath: "sitemap.xml",
+    },
   },
 });
