@@ -318,15 +318,14 @@ export function Footer() {
             </li>
             <li className="flex gap-3">
               <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
-              <a href={`tel:${HOTEL.phone}`} className="hover:text-gold">
-                {HOTEL.phoneLabel}
-              </a>
-            </li>
-            <li className="flex gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
-              <a href={`tel:${HOTEL.secondaryPhone}`} className="hover:text-gold">
-                {HOTEL.secondaryPhoneLabel}
-              </a>
+              <span className="grid gap-2">
+                <a href={`tel:${HOTEL.phone}`} className="hover:text-gold">
+                  {HOTEL.phoneLabel}
+                </a>
+                <a href={`tel:${HOTEL.secondaryPhone}`} className="hover:text-gold">
+                  {HOTEL.secondaryPhoneLabel}
+                </a>
+              </span>
             </li>
             <li className="flex gap-3">
               <Mail className="mt-0.5 size-4 shrink-0 text-gold" />

@@ -5,7 +5,7 @@ export const HOTEL = {
   phone: hotelBusiness.phone,
   phoneLabel: "98979 54060",
   secondaryPhone: "+918077226282",
-  secondaryPhoneLabel: "8077226282",
+  secondaryPhoneLabel: "80772 26282",
   whatsapp: "919897954060",
   email: hotelBusiness.email,
   address: hotelBusiness.address,
