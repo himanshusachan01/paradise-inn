@@ -14,7 +14,7 @@ export const seo = {
 
 export const hotelBusiness = {
   name: "Paradise Inn Bhimtal",
-  phone: "+918077226282",
+  phone: "+919897954060",
   email: "paradise.anurag@gmail.com",
   address: "Paradise Inn, Mandir Marg, Tallital, Bhimtal, Uttarakhand 263136",
   streetAddress: "Paradise Inn, Mandir Marg, Tallital",
@@ -50,7 +50,7 @@ export const faqItems = [
   {
     question: "How can I book a room at Paradise Inn Bhimtal?",
     answer:
-      "You can book by calling 8077226282 or by sending a WhatsApp message to Paradise Inn with your travel dates and guest count.",
+      "You can book by calling 98979 54060 or by sending a WhatsApp message to Paradise Inn with your travel dates and guest count.",
   },
   {
     question: "Which attractions are near Paradise Inn Bhimtal?",
