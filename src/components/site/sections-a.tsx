@@ -119,14 +119,14 @@ const ROOMS = [
     name: "Standard Room Double Bed",
     image: roomStandard,
     price: "₹2,000",
-    facilities: ["169 sq.ft", "Max 3 Guests", "1 Double Bed", "1 Bathroom"],
+    facilities: ["100 sq.ft", "Max 3 Guests", "1 Double Bed", "1 Bathroom"],
     status: "Room Only",
   },
   {
     name: "Lake View Triple Bedded Room",
     image: roomSuper,
     price: "₹2,800",
-    facilities: ["100 sq.ft", "Max 3 Guests", "Lake View", "1 Double Bed"],
+    facilities: ["169 sq.ft", "Max 3 Guests", "Lake View", "1 Double Bed"],
     status: "Lake View",
   },
   {
