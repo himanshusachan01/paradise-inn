@@ -55,7 +55,7 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-forest-deep/25 lg:hidden" aria-hidden />
 
-      <div className="relative mx-auto flex min-h-[auto] max-w-7xl flex-col justify-start px-5 pt-40 pb-8 sm:px-8 lg:min-h-[100svh] lg:justify-center lg:pt-32 lg:pb-40">
+      <div className="relative mx-auto flex min-h-[auto] max-w-7xl flex-col justify-start px-5 pt-40 pb-8 sm:px-8 lg:min-h-[100svh] lg:justify-center lg:pt-32 lg:pb-52">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-20 px-5 sm:px-8 lg:absolute lg:inset-x-0 lg:bottom-20"
+        className="relative z-20 px-5 sm:px-8 lg:absolute lg:inset-x-0 lg:bottom-8 xl:bottom-12"
       >
         <div className="glass mx-auto grid max-w-5xl gap-4 rounded-2xl p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-4 lg:items-end">
           <label className="block">

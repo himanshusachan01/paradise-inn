@@ -45,24 +45,24 @@ export function About() {
               Where the Lake Meets the Mountains
             </h2>
             <div className="mt-6 h-px w-14 bg-gold" />
-            <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Located right beside the serene Bhimtal Lake, Paradise Inn offers a simple and
               comfortable stay surrounded by beautiful views of the lake, mountains and the nearby
               bridge.
             </p>
-            <p className="mt-5 leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               At Paradise Inn, our focus is simple: comfortable rooms, beautiful views and great
               value for money. Whether you are travelling with family, friends or your partner, you
               can enjoy the beauty and tranquillity of Bhimtal while staying close to the lake and
               other popular attractions.
             </p>
-            <p className="mt-5 leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               With excellent connectivity and a peaceful setting, our hotel makes it easy to explore
               Bhimtal while giving you a relaxing place to return to. If you are looking for a stay
               that offers good rooms and some of the best views in Bhimtal at an affordable price,
               Paradise Inn is the perfect choice.
             </p>
-            <p className="mt-5 font-display text-2xl leading-snug text-forest dark:text-gold">
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Come for the views, stay for the peace, and enjoy Bhimtal.
             </p>
           </Reveal>
@@ -70,8 +70,8 @@ export function About() {
           <Reveal delay={0.1}>
             <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
               {STATS.map((s) => (
-                <div key={s.label} className="bg-background px-5 py-6 text-center">
-                  <p className="font-display text-2xl text-forest sm:text-3xl dark:text-gold">
+                <div key={s.label} className="bg-background px-1 py-6 text-center sm:px-2 xl:px-5">
+                  <p className="font-display text-[1.375rem] whitespace-nowrap text-forest xl:text-3xl dark:text-gold">
                     {s.value}
                   </p>
                   <p className="mt-1 text-[0.68rem] tracking-[0.16em] text-muted-foreground uppercase">
