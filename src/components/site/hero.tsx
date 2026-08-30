@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { CalendarDays, Users, Cloud, Star } from "lucide-react";
+import { CalendarDays, Users } from "lucide-react";
+import { HOTEL } from "@/lib/hotel";
 import heroLake from "@/assets/paradise-inn-lake.jpg";
 
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
-const BHIMTAL_WEATHER_URL =
-  "https://api.open-meteo.com/v1/forecast?latitude=29.35&longitude=79.56&current=temperature_2m,weather_code&timezone=Asia%2FKolkata";
 
 function toDateInputValue(date: Date) {
   const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
@@ -17,15 +16,6 @@ function addDays(value: string, days: number) {
   return toDateInputValue(new Date(year, month - 1, day + days));
 }
 
-function getWeatherLabel(code: number) {
-  if (code === 0) return "Clear mountain air";
-  if ([1, 2, 3].includes(code)) return "Partly cloudy";
-  if ([45, 48].includes(code)) return "Misty";
-  if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return "Rain nearby";
-  if ([95, 96, 99].includes(code)) return "Thunder possible";
-  return "Live Bhimtal weather";
-}
-
 export function Hero() {
   const today = toDateInputValue(new Date());
   const [checkIn, setCheckIn] = useState(() => toDateInputValue(new Date()));
@@ -33,38 +23,6 @@ export function Hero() {
     toDateInputValue(new Date(Date.now() + ONE_DAY_MS)),
   );
   const [guests, setGuests] = useState("2 Guests");
-  const [weather, setWeather] = useState("Live temperature updating");
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    async function loadWeather() {
-      try {
-        const response = await fetch(BHIMTAL_WEATHER_URL, {
-          cache: "no-store",
-          signal: controller.signal,
-        });
-        if (!response.ok) throw new Error("Weather request failed");
-        const data = await response.json();
-        const current = data.current;
-        const temperature = Math.round(Number(current.temperature_2m));
-        const label = getWeatherLabel(Number(current.weather_code));
-        setWeather(`Live now · Bhimtal ${temperature}°C · ${label}`);
-      } catch (error) {
-        if (!controller.signal.aborted) {
-          setWeather("Bhimtal weather unavailable");
-        }
-      }
-    }
-
-    loadWeather();
-    const interval = window.setInterval(loadWeather, 15 * 60 * 1000);
-
-    return () => {
-      controller.abort();
-      window.clearInterval(interval);
-    };
-  }, []);
 
   const minCheckOut = addDays(checkIn, 1);
 
@@ -126,14 +84,6 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-6 text-[#fbfaf4]/80">
-            <span className="flex items-center gap-2 text-sm">
-              <Star className="size-4 fill-gold text-gold" /> 4.2 · 181+ traveller ratings
-            </span>
-            <span className="flex items-center gap-2 text-sm">
-              <Cloud className="size-4 text-gold" /> {weather}
-            </span>
-          </div>
         </motion.div>
       </div>
 
@@ -184,7 +134,7 @@ export function Hero() {
             </select>
           </label>
           <a
-            href={`https://wa.me/919897954060?text=${encodeURIComponent(
+            href={`https://wa.me/${HOTEL.whatsapp}?text=${encodeURIComponent(
               `Hello Paradise Inn, I'd like to book ${guests} from ${checkIn} to ${checkOut}.`,
             )}`}
             target="_blank"
@@ -196,11 +146,6 @@ export function Hero() {
         </div>
       </motion.div>
 
-      <div className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2">
-        <div className="flex h-10 w-6 justify-center rounded-full border border-primary-foreground/40 pt-2">
-          <span className="scroll-dot size-1.5 rounded-full bg-gold" />
-        </div>
-      </div>
     </section>
   );
 }

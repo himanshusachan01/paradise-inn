@@ -14,28 +14,23 @@ export const seo = {
 
 export const hotelBusiness = {
   name: "Paradise Inn Bhimtal",
-  phone: "+919897954060",
+  phone: "+918077226282",
   email: "paradise.anurag@gmail.com",
-  address:
-    "Paradise Inn, Mandir Marg, Ward No. 3, Jind State Nagar Panchayat, Near SOS Bhimtal, Uttarakhand 263136",
-  streetAddress:
-    "Paradise Inn, Mandir Marg, Ward No. 3, Jind State Nagar Panchayat, Near SOS Bhimtal",
+  address: "Paradise Inn, Mandir Marg, Tallital, Bhimtal, Uttarakhand 263136",
+  streetAddress: "Paradise Inn, Mandir Marg, Tallital",
   locality: "Bhimtal",
   region: "Uttarakhand",
   postalCode: "263136",
   country: "IN",
   latitude: 29.35,
   longitude: 79.56,
-  ratingValue: "4.2",
-  reviewCount: "181",
   priceRange: "₹₹",
 } as const;
 
 export const faqItems = [
   {
     question: "Where is Paradise Inn Bhimtal located?",
-    answer:
-      "Paradise Inn is located on Mandir Marg, Ward No. 3, near SOS Bhimtal in Uttarakhand 263136.",
+    answer: "Paradise Inn is located at Mandir Marg, Tallital, Bhimtal, Uttarakhand 263136.",
   },
   {
     question: "Is Paradise Inn close to Bhimtal Lake?",
@@ -55,17 +50,19 @@ export const faqItems = [
   {
     question: "How can I book a room at Paradise Inn Bhimtal?",
     answer:
-      "You can book by calling 98979 54060 or by sending a WhatsApp message to Paradise Inn with your travel dates and guest count.",
+      "You can book by calling 8077226282 or by sending a WhatsApp message to Paradise Inn with your travel dates and guest count.",
   },
   {
     question: "Which attractions are near Paradise Inn Bhimtal?",
     answer:
-      "Nearby places include Bhimtal Lake, Sattal, Naukuchiatal, Hanuman Garhi, Nainital, paragliding points, mountain trails and the boating point.",
+      "Nearby places include Bhimtal Lake, Kainchi Dham, Golju Devta Temple, Sattal, Naukuchiatal, Hanuman Garhi, Nainital, paragliding points, mountain trails and the boating point.",
   },
 ] as const;
 
 export const nearbyAttractions = [
   { name: "Bhimtal Lake", distance: "0.3 km", url: "#nearby" },
+  { name: "Kainchi Dham", distance: "18 km", url: "#nearby" },
+  { name: "Golju Devta Temple", distance: "10 km", url: "#nearby" },
   { name: "Boating Point", distance: "0.5 km", url: "#nearby" },
   { name: "Mountain Trails", distance: "1 km", url: "#nearby" },
   { name: "Naukuchiatal", distance: "4 km", url: "#nearby" },

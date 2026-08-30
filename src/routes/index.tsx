@@ -85,7 +85,7 @@ export const Route = createFileRoute("/")({
           email: hotelBusiness.email,
           priceRange: hotelBusiness.priceRange,
           hasMap:
-            "https://www.google.com/maps/search/?api=1&query=Paradise+Inn+Mandir+Marg+Bhimtal+Uttarakhand",
+            "https://www.google.com/maps/search/?api=1&query=Paradise+Inn+Mandir+Marg+Tallital+Bhimtal+Uttarakhand+263136",
           areaServed: ["Bhimtal", "Nainital", "Sattal", "Naukuchiatal", "Kumaon", "Uttarakhand"],
           address: {
             "@type": "PostalAddress",
@@ -99,11 +99,6 @@ export const Route = createFileRoute("/")({
             "@type": "GeoCoordinates",
             latitude: hotelBusiness.latitude,
             longitude: hotelBusiness.longitude,
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: hotelBusiness.ratingValue,
-            reviewCount: hotelBusiness.reviewCount,
           },
           amenityFeature: [
             "Free WiFi",

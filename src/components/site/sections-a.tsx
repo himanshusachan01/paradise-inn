@@ -20,10 +20,10 @@ import roomSuper from "@/assets/room-super-deluxe.jpg";
 import roomFamily from "@/assets/room-family.jpg";
 
 const STATS = [
-  { value: "181+", label: "Traveller Ratings" },
-  { value: "4.2★", label: "Guest Rating" },
   { value: "3", label: "Room Types" },
-  { value: "10 AM", label: "Check-in" },
+  { value: "11:00 AM", label: "Check-in" },
+  { value: "10:00 AM", label: "Check-out" },
+  { value: "Lake", label: "View" },
 ];
 
 const HIGHLIGHTS = [
@@ -40,19 +40,30 @@ export function About() {
       <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <Reveal>
-            <p className="eyebrow">Our Story</p>
+            <p className="eyebrow">About Us</p>
             <h2 className="mt-4 text-4xl leading-[1.1] sm:text-5xl">
-              A quiet retreat beside the still waters of Bhimtal
+              Where the Lake Meets the Mountains
             </h2>
             <div className="mt-6 h-px w-14 bg-gold" />
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              Paradise Inn is located on Mandir Marg near Bhimtal Lake, with lake-facing room
-              options, housekeeping, room service and essential hill-station comforts for families,
-              couples and small groups.
+              Located right beside the serene Bhimtal Lake, Paradise Inn offers a simple and
+              comfortable stay surrounded by beautiful views of the lake, mountains and the nearby
+              bridge.
             </p>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              The stay keeps you close to the lake, market and nearby day trips, while the rooms
-              focus on simple comfort, hot water, free WiFi and helpful local assistance.
+              At Paradise Inn, our focus is simple: comfortable rooms, beautiful views and great
+              value for money. Whether you are travelling with family, friends or your partner, you
+              can enjoy the beauty and tranquillity of Bhimtal while staying close to the lake and
+              other popular attractions.
+            </p>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              With excellent connectivity and a peaceful setting, our hotel makes it easy to explore
+              Bhimtal while giving you a relaxing place to return to. If you are looking for a stay
+              that offers good rooms and some of the best views in Bhimtal at an affordable price,
+              Paradise Inn is the perfect choice.
+            </p>
+            <p className="mt-5 font-display text-2xl leading-snug text-forest dark:text-gold">
+              Come for the views, stay for the peace, and enjoy Bhimtal.
             </p>
           </Reveal>
 
@@ -60,7 +71,9 @@ export function About() {
             <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
               {STATS.map((s) => (
                 <div key={s.label} className="bg-background px-5 py-6 text-center">
-                  <p className="font-display text-3xl text-forest dark:text-gold">{s.value}</p>
+                  <p className="font-display text-2xl text-forest sm:text-3xl dark:text-gold">
+                    {s.value}
+                  </p>
                   <p className="mt-1 text-[0.68rem] tracking-[0.16em] text-muted-foreground uppercase">
                     {s.label}
                   </p>
@@ -94,12 +107,6 @@ export function About() {
               height={1500}
               className="aspect-4/5 w-full object-cover"
             />
-          </div>
-          <div className="glass absolute -bottom-8 left-6 hidden rounded-xl px-6 py-5 sm:block">
-            <p className="font-display text-2xl text-foreground">Mandir Marg, Bhimtal</p>
-            <p className="mt-1 text-xs tracking-[0.2em] text-muted-foreground uppercase">
-              Bhimtal · Uttarakhand 263136
-            </p>
           </div>
         </Reveal>
       </div>
@@ -137,8 +144,8 @@ export function Rooms() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Stay"
-          title="Rooms & Suites"
-          subtitle="Verified Paradise Inn room options with practical comforts, lake-facing choices and flexible room-only booking plans."
+          title="Rooms"
+          subtitle="Paradise Inn offers three categories of rooms."
         />
         <div className="mt-16 grid gap-8 sm:grid-cols-2">
           {ROOMS.map((room, i) => (

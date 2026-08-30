@@ -8,7 +8,6 @@ import {
   Sparkles,
   Users,
   ShieldCheck,
-  Star,
   Quote,
   ChevronLeft,
   ChevronRight,
@@ -16,7 +15,6 @@ import {
   Phone,
   Mail,
   Instagram,
-  Facebook,
   MessageCircle,
   Navigation,
   HelpCircle,
@@ -78,25 +76,21 @@ const REVIEWS = [
   {
     name: "Ananya Sharma",
     from: "Delhi",
-    stars: 5,
     text: "We woke up to the lake covered in mist and simply sat on the balcony for an hour. The staff arranged an early breakfast without being asked. Easily the calmest two days we've had.",
   },
   {
     name: "Rohit Mehra",
     from: "Lucknow",
-    stars: 4,
     text: "Clean, spacious rooms and a genuinely warm host. The lake view room is worth every rupee — the sunset from the terrace was unreal.",
   },
   {
     name: "Priya & Karan",
     from: "Gurugram",
-    stars: 5,
     text: "Travelled with our parents and a toddler. The family room was perfect, food was home-style and delicious, and parking right at the gate made everything easy.",
   },
   {
     name: "Sourav Das",
     from: "Kolkata",
-    stars: 4,
     text: "Great base for Sattal and Naukuchiatal. They helped plan the whole day trip and even arranged the cab. Bonfire in the evening was a lovely touch.",
   },
 ];
@@ -115,28 +109,7 @@ export function Testimonials() {
   return (
     <section id="reviews" className="bg-secondary/50 py-28 lg:py-36">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <SectionHeading eyebrow="Guest Voices" title="Loved by 181+ travellers" />
-
-        <Reveal delay={0.05}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
-            <div className="glass flex items-center gap-4 rounded-2xl px-7 py-5">
-              <span className="font-display text-4xl text-forest dark:text-gold">4.2</span>
-              <span>
-                <span className="flex gap-0.5">
-                  {[0, 1, 2, 3, 4].map((s) => (
-                    <Star
-                      key={s}
-                      className={`size-3.5 ${s < 4 ? "fill-gold text-gold" : "text-gold/40"}`}
-                    />
-                  ))}
-                </span>
-                <span className="mt-1 block text-[0.65rem] tracking-[0.2em] text-muted-foreground uppercase">
-                  Google Rating · 181+ Reviews
-                </span>
-              </span>
-            </div>
-          </div>
-        </Reveal>
+        <SectionHeading eyebrow="Guest Voices" title="Warm words from our guests" />
 
         <div className="relative mt-12 min-h-64">
           <AnimatePresence mode="wait">
@@ -155,7 +128,7 @@ export function Testimonials() {
               <footer className="mt-8">
                 <p className="text-sm tracking-[0.18em] text-foreground uppercase">{review.name}</p>
                 <p className="mt-1 text-[0.68rem] tracking-[0.2em] text-muted-foreground uppercase">
-                  {review.from} · {review.stars}.0 ★
+                  {review.from}
                 </p>
               </footer>
             </motion.blockquote>
@@ -203,7 +176,7 @@ export function MapSection() {
         <div className="mt-14 overflow-hidden rounded-2xl border border-border luxe-shadow">
           <iframe
             title="Map showing Paradise Inn Bhimtal location"
-            src="https://maps.google.com/maps?q=Bhimtal%20Lake%2C%20Bhimtal%2C%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Paradise%20Inn%2C%20Mandir%20Marg%2C%20Tallital%2C%20Bhimtal%2C%20Uttarakhand%20263136&t=&z=15&ie=UTF8&iwloc=&output=embed"
             loading="lazy"
             className="h-[440px] w-full border-0"
             referrerPolicy="no-referrer-when-downgrade"
@@ -309,13 +282,16 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            A lake-view boutique stay offering peaceful rooms, mountain views, home-style food and
-            warm Kumaoni hospitality.
+            Peaceful evenings by the lake, boats drifting on the water, and the soothing sound of
+            distant temple bells.
           </p>
           <div className="mt-7 flex gap-3">
             {[
-              { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-              { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+              {
+                icon: Instagram,
+                href: "https://www.instagram.com/paradiseinn_bhimtal?igsi=MWtneWV2djV5MWUz",
+                label: "Instagram",
+              },
               { icon: MessageCircle, href: `https://wa.me/${HOTEL.whatsapp}`, label: "WhatsApp" },
               { icon: MapPin, href: HOTEL.mapsLink, label: "Google Maps" },
             ].map((s) => (
@@ -359,9 +335,8 @@ export function Footer() {
           <p className="text-[0.65rem] tracking-[0.28em] text-gold uppercase">Explore</p>
           <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
             {[
-              ["#rooms", "Rooms & Suites"],
+              ["#rooms", "Rooms"],
               ["#amenities", "Amenities"],
-              ["#experience", "Experiences"],
               ["#gallery", "Gallery"],
               ["#nearby", "Nearby Attractions"],
               ["#map", "Location"],

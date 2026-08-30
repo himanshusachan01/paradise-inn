@@ -151,6 +151,16 @@ export function Gallery() {
 
 const NEARBY = [
   { img: bhimtalLake, name: "Bhimtal Lake", distance: "0.3 km" },
+  {
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Kainchi%20Dhaam%20Neem%20Karoli%20Temple.jpg?width=1000",
+    name: "Kainchi Dham",
+    distance: "18 km",
+  },
+  {
+    img: "https://commons.wikimedia.org/wiki/Special:FilePath/Bells%20hanging%20at%20the%20Golu%20Dev%20Temple%20of%20the%20Lord%20of%20Justice%20at%20Ghorakhal,%20Uttarakhand.jpg?width=1000",
+    name: "Golju Devta Temple",
+    distance: "10 km",
+  },
   { img: attrSattal, name: "Sattal", distance: "6 km" },
   { img: bhimtalGhorakhal, name: "Naukuchiatal", distance: "4 km" },
   { img: attrTemple, name: "Hanuman Garhi", distance: "20 km" },
@@ -167,7 +177,7 @@ export function Nearby() {
         <SectionHeading
           eyebrow="Around You"
           title="Nearby Attractions"
-          subtitle="Seven lakes, hilltop temples and paragliding ridges — all within an easy morning's drive."
+          subtitle="Seven lakes, hilltop temples and paragliding ridges, all within an easy morning's drive."
         />
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {NEARBY.map((n, i) => (

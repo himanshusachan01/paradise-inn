@@ -6,7 +6,6 @@ const LINKS = [
   { href: "#about", label: "About" },
   { href: "#rooms", label: "Rooms" },
   { href: "#amenities", label: "Amenities" },
-  { href: "#experience", label: "Experience" },
   { href: "#gallery", label: "Gallery" },
   { href: "#nearby", label: "Nearby" },
   { href: "#reviews", label: "Reviews" },
@@ -47,8 +46,8 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-3" : "border-b border-transparent py-6"
+      className={`fixed inset-x-0 z-50 transition-all duration-500 ${
+        scrolled ? "top-0 glass py-3" : "top-3 border-b border-transparent py-6 sm:top-4"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
