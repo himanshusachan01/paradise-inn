@@ -62,7 +62,7 @@ export function About() {
               that offers good rooms and some of the best views in Bhimtal at an affordable price,
               Paradise Inn is the perfect choice.
             </p>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-5 font-display text-2xl leading-snug text-forest dark:text-gold">
               Come for the views, stay for the peace, and enjoy Bhimtal.
             </p>
           </Reveal>
