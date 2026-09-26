@@ -9,20 +9,20 @@ import expBonfire from "@/assets/exp-bonfire.jpg";
 import expWalk from "@/assets/exp-walk.jpg";
 import expHills from "@/assets/exp-hills.jpg";
 import galDining from "@/assets/gal-dining.jpg";
-import galTerrace from "@/assets/gal-terrace.jpg";
 import attrTemple from "@/assets/attr-temple.jpg";
 import attrNainital from "@/assets/attr-nainital.jpg";
 import attrSattal from "@/assets/attr-sattal.jpg";
 import attrPara from "@/assets/attr-paragliding.jpg";
 import paradiseFlowers from "@/assets/paradise-inn-flowers.jpg";
-import roomDeluxe from "@/assets/room-deluxe.jpg";
+import roomDeluxe from "@/assets/optimized/room-deluxe-optimized.jpg";
 import roomLakeView from "@/assets/room-lake-view.jpg";
-import aboutHotel from "@/assets/gal-lake-side-view.jpg";
-import bhimtalLake from "@/assets/bhimtal-lake-nainital-hd.jpg";
-import bhimtalLakeView from "@/assets/bhimtal-lake-view-01-hd.jpg";
-import bhimtalLandscape from "@/assets/bhimtal-landscape-hd.jpg";
-import bhimtalUttarakhand from "@/assets/bhimtal-uttarakhand-hd.jpg";
+import aboutHotel from "@/assets/optimized/gal-lake-side-view-optimized.jpg";
+import bhimtalLake from "@/assets/optimized/bhimtal-lake-nainital-optimized.jpg";
+import bhimtalLakeView from "@/assets/optimized/bhimtal-lake-view-01-optimized.jpg";
+import bhimtalLandscape from "@/assets/optimized/bhimtal-landscape-optimized.jpg";
+import bhimtalUttarakhand from "@/assets/optimized/bhimtal-uttarakhand-optimized.jpg";
 import bhimtalGhorakhal from "@/assets/bhimtal-from-ghorakhal-hd.jpg";
+import galTerraceOptimized from "@/assets/optimized/gal-terrace-optimized.jpg";
 
 const EXPERIENCES = [
   { img: expMorning, title: "Morning Lake", note: "Mist at 6 a.m.", span: "lg:col-span-2 lg:row-span-2" },
@@ -57,6 +57,7 @@ export function Experience() {
                   src={e.img}
                   alt={e.title}
                   loading="lazy"
+                  decoding="async"
                   width={1000}
                   height={1000}
                   className="size-full object-cover"
@@ -80,7 +81,7 @@ const GALLERY = [
   { img: roomDeluxe, alt: "Deluxe room interior at Paradise Inn Bhimtal", h: "h-[300px]" },
   { img: roomLakeView, alt: "Lake view room interior at Paradise Inn Bhimtal", h: "h-[340px]" },
   { img: galDining, alt: "Lakeside dining at dusk", h: "h-[380px]" },
-  { img: galTerrace, alt: "Terrace lounge at golden hour", h: "h-[460px]" },
+  { img: galTerraceOptimized, alt: "Terrace lounge at golden hour", h: "h-[460px]" },
   { img: aboutHotel, alt: "Paradise Inn Bhimtal exterior", h: "h-[300px]" },
   { img: paradiseFlowers, alt: "Flowers at Paradise Inn Bhimtal", h: "h-[330px]" },
 ];
@@ -113,6 +114,7 @@ export function Gallery() {
                 src={g.img}
                 alt={g.alt}
                 loading="lazy"
+                decoding="async"
                 className={`w-full ${g.h} object-cover`}
               />
             </button>
@@ -192,6 +194,7 @@ export function Nearby() {
                   src={n.img}
                   alt={n.name}
                   loading="lazy"
+                  decoding="async"
                   width={1000}
                   height={1000}
                   className="size-full object-cover"

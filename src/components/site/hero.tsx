@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { CalendarDays, Users } from "lucide-react";
 import { HOTEL } from "@/lib/hotel";
-import heroLake from "@/assets/paradise-inn-lake.jpg";
+import heroLake from "@/assets/optimized/hero-lake-optimized.jpg";
 
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -43,6 +43,9 @@ export function Hero() {
         alt="Bhimtal Lake view from Paradise Inn"
         width={1920}
         height={1088}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 size-full object-cover"
         initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}

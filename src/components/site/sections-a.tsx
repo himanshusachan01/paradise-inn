@@ -14,7 +14,7 @@ import {
   Waves,
 } from "lucide-react";
 import { Reveal, SectionHeading } from "./reveal";
-import aboutHotel from "@/assets/about-hotel.jpg";
+import aboutHotel from "@/assets/optimized/about-hotel-optimized.jpg";
 import roomStandard from "@/assets/paradise-inn-street.jpeg";
 import roomSuper from "@/assets/room-super-deluxe.jpg";
 import roomFamily from "@/assets/room-family.jpg";
@@ -103,6 +103,7 @@ export function About() {
               src={aboutHotel}
               alt="Paradise Inn Bhimtal reception"
               loading="lazy"
+              decoding="async"
               width={1200}
               height={1500}
               className="aspect-4/5 w-full object-cover"
@@ -160,6 +161,7 @@ export function Rooms() {
                     src={room.image}
                     alt={`${room.name} at Paradise Inn Bhimtal`}
                     loading="lazy"
+                    decoding="async"
                     width={1200}
                     height={900}
                     className="aspect-4/3 w-full object-cover"
