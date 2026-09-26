@@ -1,4 +1,6 @@
-export const siteUrl = (import.meta.env.VITE_SITE_URL ?? "").replace(/\/$/, "");
+const defaultSiteUrl = "https://www.paradiseinnbhimtal.in";
+
+export const siteUrl = (import.meta.env.VITE_SITE_URL ?? defaultSiteUrl).replace(/\/$/, "");
 
 export const seo = {
   siteName: "Paradise Inn Bhimtal",
